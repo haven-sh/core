@@ -1,0 +1,55 @@
+body { margin: 0; overflow: hidden; font-family: 'Share Tech Mono', monospace; user-select: none; }
+
+#ui-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.scanlines {
+    position: absolute; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none; z-index: 10;
+}
+.vignette {
+    position: absolute; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none; z-index: 9;
+}
+
+.top-bar {
+    display: flex; justify-content: space-between; padding: 30px 50px;
+    color: white; font-size: 24px; text-shadow: 0 0 5px rgba(0,255,0,0.8);
+    z-index: 11; position: relative;
+}
+
+.rec-tag { color: red; display: flex; align-items: center; gap: 10px; }
+.dot { width: 15px; height: 15px; background: red; border-radius: 50%; animation: blink 1s infinite; }
+
+.center-info {
+    position: absolute; bottom: 120px; right: 50px;
+    color: rgba(255, 255, 255, 0.7); font-size: 20px;
+    background: rgba(0, 0, 0, 0.5); padding: 5px 15px;
+    border-left: 3px solid #0f0;
+}
+
+.controls-bar {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 20px; align-items: center; z-index: 12;
+    background: rgba(0, 0, 0, 0.6); padding: 15px 30px;
+    border: 1px solid #333; clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%, 0% 30%);
+}
+
+.btn {
+    background: transparent; border: 1px solid white; color: white;
+    padding: 10px 20px; cursor: pointer; font-family: 'Share Tech Mono'; font-size: 16px;
+    transition: 0.2s;
+}
+.btn:hover { background: white; color: black; }
+.close-btn { border-color: red; color: red; }
+.close-btn:hover { background: red; color: white; }
+
+.status { color: white; font-size: 14px; }
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }

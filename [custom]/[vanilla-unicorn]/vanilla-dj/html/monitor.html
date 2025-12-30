@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Monitor</title>
+  <style>
+    /* Fundo ROSA para debug. Se vires rosa, o script funciona! */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #ff00ff;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="video-container"></div>
+
+  <script>
+    // Pega o ID do URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const vidId = urlParams.get('id');
+
+    if (vidId) {
+      // Cria o iframe manualmente para garantir autoplay
+      const container = document.getElementById('video-container');
+
+      // URL com todos os parâmetros de "força bruta" para tocar
+      const src = `https://www.youtube.com/embed/${vidId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${vidId}&showinfo=0&modestbranding=1&rel=0&disablekb=1`;
+
+      container.innerHTML = `<iframe src="${src}" allow="autoplay; encrypted-media"></iframe>`;
+
+      // Se carregou o iframe, muda o fundo para preto (para não ferir os olhos)
+      // Se o vídeo falhar, vais ver preto. Se o iframe não carregar, vês rosa.
+      document.body.style.backgroundColor = "black";
+    }
+  </script>
+</body>
+
+</html>

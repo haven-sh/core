@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div id="ui-container" style="display: none;">
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="rec-overlay">
+      <div class="top-bar">
+        <div class="rec-tag">
+          <div class="dot"></div> REC
+        </div>
+        <div class="cam-info" id="cam-label">SISTEMA</div>
+        <div class="time-info" id="real-time">00:00:00</div>
+      </div>
+
+      <div class="center-info">
+        <span id="current-cam-name">LOADING SIGNAL...</span>
+      </div>
+
+      <div class="controls-bar">
+        <button class="btn" id="prev"><i class="fas fa-chevron-left"></i> ANTERIOR</button>
+        <div class="status">SINAL: <span style="color:#0f0">ONLINE</span></div>
+        <button class="btn" id="next">PRÓXIMA <i class="fas fa-chevron-right"></i></button>
+        <button class="btn close-btn" id="close">DESLIGAR <i class="fas fa-power-off"></i></button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

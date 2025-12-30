@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <title>Vanilla OS</title>
+</head>
+
+<body>
+  <div class="container" id="app" style="display: none;">
+    <div class="os-window">
+      <div class="title-bar">
+        <div class="window-controls">
+          <div class="dot red" id="close-btn"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <div class="window-title">Vanilla OS 11 - DJ Controller</div>
+      </div>
+
+      <div class="window-content">
+        <div class="sidebar">
+          <div class="nav-item active" data-tab="audio">
+            <i class="fas fa-music"></i> <span>Audio</span>
+          </div>
+          <div class="nav-item" data-tab="lights">
+            <i class="fas fa-lightbulb"></i> <span>Light FX</span>
+          </div>
+          <div class="nav-item" data-tab="camera">
+            <i class="fas fa-video"></i> <span>CCTV Cam</span>
+          </div>
+          <div class="clock-widget"><span id="clock">00:00</span></div>
+        </div>
+
+        <div class="main-view">
+          <div class="tab-content active" id="audio">
+            <h2><i class="fab fa-youtube"></i> Source Management</h2>
+            <div class="input-group">
+              <input type="text" id="yt-link" placeholder="Paste YouTube URL...">
+            </div>
+            <div class="controls-row">
+              <button class="btn-primary" id="play-btn"><i class="fas fa-play"></i> Play</button>
+              <button class="btn-danger" id="stop-btn"><i class="fas fa-stop"></i> Stop</button>
+            </div>
+            <div class="slider-group">
+              <label>Master Gain</label>
+              <input type="range" id="volume-slider" min="0" max="100" value="50">
+            </div>
+          </div>
+
+          <div class="tab-content" id="lights">
+            <h2><i class="fas fa-bolt"></i> DMX Control</h2>
+            <div class="grid-buttons">
+              <button class="btn-mode" onclick="setLightMode('OFF')">BLACKOUT</button>
+              <button class="btn-mode" onclick="setLightMode('STATIC')">STATIC</button>
+              <button class="btn-mode" onclick="setLightMode('STROBE')">STROBE</button>
+              <button class="btn-mode" onclick="setLightMode('RGB')">RGB FADE</button>
+            </div>
+            <div class="slider-group">
+              <label>Manual RGB Tweaks</label>
+              <input type="range" class="color-slider" id="color-r" min="0" max="255" value="255">
+              <input type="range" class="color-slider" id="color-g" min="0" max="255" value="255">
+              <input type="range" class="color-slider" id="color-b" min="0" max="255" value="255">
+            </div>
+
+            <h2 style="margin-top: 20px;"><i class="fas fa-cube"></i> Stage Automation</h2>
+            <div class="controls-row"
+              style="align-items: center; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px;">
+              <span>360° Screens Drop</span>
+              <label class="switch">
+                <input type="checkbox" id="screen-toggle">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="tab-content" id="camera">
+            <h2><i class="fas fa-eye"></i> CCTV Calibration</h2>
+            <div class="warning-box">
+              <i class="fas fa-exclamation-triangle"></i> Preview is live on background.
+            </div>
+            <div class="slider-group">
+              <label>Zoom (FOV)</label>
+              <input type="range" id="cam-fov" min="20" max="110" value="60">
+            </div>
+            <div class="slider-group">
+              <label>Pan / Rotation</label>
+              <input type="range" id="cam-rot" min="-60" max="60" value="0">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="taskbar">
+        <div class="start-icon"><i class="fab fa-windows"></i></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
