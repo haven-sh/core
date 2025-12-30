@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CMapParentTxds>
+  <txdRelationships>
+    <Item>
+      <parent>rfc_eastcustums_txt_1</parent>
+      <child>rfc_eastcustums_txt</child>
+    </Item>
+  </txdRelationships>
+</CMapParentTxds>
